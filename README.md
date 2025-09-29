@@ -26,8 +26,8 @@ Outils : Git/GitHub, VS Code, Chrome DevTools
 git clone https://github.com/ton-username/mon-projet-crud.git
 cd mon-projet-crud
 
-# Lancer en local
-npx http-server     # ou "python -m http.server 8000"
+# Lien du projet
+https://boisterous-basbousa-a86919.netlify.app/
 
 
 🔧 Configure supabaseUrl et supabaseKey dans script.js.
