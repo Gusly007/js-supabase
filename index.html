@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulaire Moderne</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .form-container {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 450px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            animation: slideUp 0.6s ease-out;
+        }
+
+        #profilePage {
+            max-width: 600px;
+        }
+
+        .profile-header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        .avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+        }
+
+        #profileUsername {
+            font-size: 1.8rem;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        #profileEmail {
+            color: #666;
+            font-size: 1rem;
+        }
+
+        .profile-info {
+            margin-bottom: 30px;
+        }
+
+        .info-card {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+            border: 1px solid #e9ecef;
+        }
+
+        .info-card h3 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #dee2e6;
+        }
+
+        .info-row:last-child {
+            margin-bottom: 0;
+            border-bottom: none;
+        }
+
+        .label {
+            font-weight: 600;
+            color: #495057;
+        }
+
+        #displayBio {
+            color: #666;
+            line-height: 1.5;
+        }
+
+        .danger {
+            background: linear-gradient(135deg, #ff6b6b, #ee5a52) !important;
+            color: white !important;
+        }
+
+        .danger:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(255, 107, 107, 0.4) !important;
+        }
+
+        /* Style pour le bouton inscription quand en mode inscription */
+        .signup-mode #inscription {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            grid-column: 1 / -1;
+        }
+
+        .signup-mode #connection {
+            background: #6c757d;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+            font-size: 2.2rem;
+            font-weight: 300;
+        }
+
+        .input-group {
+            position: relative;
+            margin-bottom: 25px;
+        }
+
+        input, textarea, select {
+            width: 100%;
+            padding: 15px 20px;
+            border: 2px solid #e1e5e9;
+            border-radius: 12px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            background: white;
+            outline: none;
+        }
+
+        input:focus, textarea:focus, select:focus {
+            border-color: #667eea;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.15);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 80px;
+            font-family: inherit;
+        }
+
+        .button-group {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        button {
+            padding: 15px 25px;
+            border: none;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        #connection {
+            background: linear-gradient(135deg, #11998e, #38ef7d);
+            color: white;
+        }
+
+        #connection:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(17, 153, 142, 0.4);
+        }
+
+        #inscription {
+            background: #6c757d;
+            color: white;
+        }
+
+        #inscription:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(108, 117, 125, 0.4);
+        }
+
+        #update {
+            background: linear-gradient(135deg, #ffecd2, #fcb69f);
+            color: #333;
+        }
+
+        #update:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(252, 182, 159, 0.4);
+        }
+
+        #deconnexion {
+            background: linear-gradient(135deg, #a8edea, #fed6e3);
+            color: #333;
+        }
+
+        #deconnexion:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(168, 237, 234, 0.4);
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 25px;
+        }
+
+        input[type="checkbox"] {
+            width: auto;
+            margin: 0;
+            accent-color: #667eea;
+        }
+
+        label {
+            font-size: 14px;
+            color: #666;
+            cursor: pointer;
+        }
+
+        .form-footer {
+            text-align: center;
+            margin-top: 25px;
+            font-size: 14px;
+            color: #888;
+        }
+
+        @media (max-width: 480px) {
+            .form-container {
+                padding: 25px;
+            }
+            
+            .button-group {
+                grid-template-columns: 1fr;
+            }
+            
+            #inscription {
+                grid-column: 1;
+            }
+        }
+
+        /* Animation d'apparition */
+        .form-container {
+            animation: slideUp 0.6s ease-out;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- PAGE DE CONNEXION/INSCRIPTION -->
+    <div class="form-container" id="authPage">
+        <h1>Mon App</h1>
+        <form id="authForm">
+            <!-- Champs pour connexion (toujours visibles) -->
+            <div class="input-group">
+                <input id="email" type="email" placeholder="Adresse email" required>
+            </div>
+            
+            <div class="input-group">
+                <input id="password" type="password" placeholder="Mot de passe" required>
+            </div>
+            
+            <!-- Champs supplémentaires pour inscription (masqués par défaut) -->
+            <div id="signupFields" style="display: none;">
+                <div class="input-group">
+                    <input id="confirmPassword" type="password" placeholder="Confirmer le mot de passe">
+                </div>
+                <div class="checkbox-group">
+                    <input id="newsletter" type="checkbox">
+                    <label for="newsletter">Recevoir la newsletter</label>
+                </div>
+            </div>
+            
+            <!-- Boutons d'authentification -->
+            <div class="button-group">
+                <button type="button" id="connection">Connexion</button>
+                <button type="button" id="inscription">Inscription</button>
+            </div>
+        </form>
+        
+        <div class="form-footer">
+            <p>Sécurisé et confidentiel</p>
+        </div>
+    </div>
+
+    <!-- page de modification de profil (masquée par défaut) -->
+     <div class = "form-container" id = "updateProfil2" style="display: none;">
+        <h1>
+            modifier le profil
+        </h1>
+        <form action="">
+         <div class="input-group">
+                    <input id="username" type="text" placeholder="Nom d'utilisateur" required>
+                </div>
+                
+                <div class="input-group">
+                    <input id="firstName" type="text" placeholder="Prénom">
+                </div>
+                
+                <div class="input-group">
+                    <input id="lastName" type="text" placeholder="Nom de famille">
+                </div>
+                
+                <div class="input-group">
+                    <input id="phone" type="tel" placeholder="Numéro de téléphone">
+                </div>
+                
+                <div class="input-group">
+                    <input id="birthDate" type="date" placeholder="Date de naissance">
+                </div>
+                
+                <div class="input-group">
+                    <textarea id="bio" placeholder="Parlez-nous de vous (bio)"></textarea>
+                </div>
+                
+                <div class="input-group">
+                    <select id="gender">
+                        <option value="">Sélectionner le genre</option>
+                        <option value="homme">Homme</option>
+                        <option value="femme">Femme</option>
+                        <option value="autre">Autre</option>
+                        <option value="prefer-not-to-say">Préfère ne pas dire</option>
+                    </select>
+                </div>
+                
+                <div class="checkbox-group">
+                    <input id="terms" type="checkbox" required>
+                    <label for="terms">J'accepte les conditions d'utilisation</label>
+                </div>
+                <div class="button-group">
+                <button type="button" id="update">mettre a jour</button>
+                </div>
+                </form>
+
+     </div>
+
+
+
+    <!-- PAGE PROFIL (masquée par défaut) -->
+    <div class="form-container" id="profilePage" style="display: none;">
+        <h1>Mon Profil</h1>
+        
+        <!-- Avatar et info principale -->
+        <div class="profile-header">
+            <div class="avatar">
+                <span id="userInitials">JD</span>
+            </div>
+            <h2 id="profileUsername">John Doe</h2>
+            <p id="profileEmail">john@example.com</p>
+        </div>
+        
+        <!-- Informations du profil -->
+        <div class="profile-info">
+            <div class="info-card">
+                <h3>Informations personnelles</h3>
+                <div class="info-row">
+                    <span class="label">Nom complet:</span>
+                    <span id="displayName">John Doe</span>
+                </div>
+                <div class="info-row">
+                    <span class="label">Téléphone:</span>
+                    <span id="displayPhone">+33 6 12 34 56 78</span>
+                </div>
+                <div class="info-row">
+                    <span class="label">Date de naissance:</span>
+                    <span id="displayBirth">1990-01-01</span>
+                </div>
+                <div class="info-row">
+                    <span class="label">Genre:</span>
+                    <span id="displayGender">Homme</span>
+                </div>
+            </div>
+            
+            <div class="info-card">
+                <h3>Bio</h3>
+                <p id="displayBio">Développeur passionné par les nouvelles technologies...</p>
+            </div>
+        </div>
+        
+        <!-- Actions du profil -->
+        <div class="button-group">
+            <button type="button" id="updateProfil">Modifier Profil</button>
+            <button type="button" id="deconnexion">Déconnexion</button>
+            <button type="button" id="delete" class="danger">Supprimer Compte</button>
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="script.js"></script>
+    
+</body>
+</html>
