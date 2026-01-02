@@ -67,7 +67,7 @@ Création d’une UI responsive et moderne
 👨‍💻 Auteur
 
 Jean Gusly Hyppolite – Étudiant en développement web
-📧 Contact : jngusly@gmail.com
+📧 Contact : votre.email@example.com
 
 🔗 GitHub
 https://github.com/Gusly007/js-supabase 
