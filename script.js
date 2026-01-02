@@ -1,6 +1,6 @@
 const { createClient } = supabase;
-const supabaseUrl = 'https://oeckzxxzremodqoghziw.supabase.co';
-const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9lY2t6eHh6cmVtb2Rxb2doeml3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTg4NzQzMzgsImV4cCI6MjA3NDQ1MDMzOH0.mwFvo77joQCxWzMEavM11sag6KEPjujJYEobhO3gGzs";
+const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
+const supabaseKey = import.meta.env.VITE_SUPABASE_KEY;
 
 const supabaseClient = createClient(supabaseUrl, supabaseKey);
 
